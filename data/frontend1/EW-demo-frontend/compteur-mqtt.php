@@ -9,7 +9,7 @@ include("config.php");
 require('vendor/autoload.php');
 use \PhpMqtt\Client\MqttClient;
 
-$server   = $ip_mysql;
+$server   = $ip_mqttbroker;
 $port     = 1883;
 $clientId = 'php-mqtt';
 $username = $usr_mqtt;
