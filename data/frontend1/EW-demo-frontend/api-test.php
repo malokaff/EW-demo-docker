@@ -131,7 +131,7 @@ foreach ($decodedJson['spec']['rules'] as $key => $value) {
 
 if(isset($_GET['action']) && $_GET['action'] == 'postMQTT')
 {
-	if($_POST['checkMQTT']=='on')
+	if(isset($_POST['checkMQTT']) && $_POST['checkMQTT'] =='on')
 	{
 	// add new rule into json
 	$newRule = [
@@ -323,7 +323,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'postMQTT')
 
 //control form mysql
 if(isset($_GET['action']) && $_GET['action'] == 'postMYSQL') {
-	if($_POST['checkMYSQL']=='on'){
+	if(isset($_POST['checkMYSQL']) && $_POST['checkMYSQL'] =='on'){
 	// add new rule into json
 	$newRule = [
 		"proto-ports" => [
