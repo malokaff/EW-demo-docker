@@ -3,6 +3,9 @@ include('config.php');
 $pagename = "api-test.php";
 $curl = curl_init();
 
+$MqttInPlace = false;
+$MysqlInPlace = false;
+
 
 function sendApiRequest($url, $headers, $body, $cookieFile, $method) {
 	global $curl;
@@ -126,7 +129,7 @@ foreach ($decodedJson['spec']['rules'] as $key => $value) {
 		$MysqlInPlace = true; }
 }
 
-if($_GET['action'] == 'postMQTT')
+if(isset($_GET['action']) && $_GET['action'] == 'postMQTT')
 {
 	if($_POST['checkMQTT']=='on')
 	{
@@ -319,7 +322,7 @@ if($_GET['action'] == 'postMQTT')
 }
 
 //control form mysql
-if($_GET['action']== 'postMYSQL') {
+if(isset($_GET['action']) && $_GET['action'] == 'postMYSQL') {
 	if($_POST['checkMYSQL']=='on'){
 	// add new rule into json
 	$newRule = [
