@@ -1,0 +1,31 @@
+FROM python:3.9
+
+RUN useradd -ms /bin/bash user
+USER user
+WORKDIR /home/user
+
+#ADD /data/backend/main.py .
+ADD /data/backend/EW-demo-backend/mqtt-publish.py .
+ADD /data/backend/EW-demo-backend/mysql-publish.py .
+ADD /data/backend/EW-demo-backend/config.py .
+
+
+#install the required module
+
+# Create a virtual environment
+#RUN python -m venv myenv
+
+# Activate the virtual environment (macOS/Linux)
+#RUN source myenv/bin/activate
+#ENV PATH="myenv/bin:$PATH"
+
+RUN pip install --upgrade pip
+RUN pip install paho-mqtt
+RUN pip install mysql-connector-python
+
+#EXPOSE 2000
+
+#CMD ["python", "main.py"]
+#CMD ["python", "mqtt-publish.py"]
+#CMD ["python", "mysql-publish.py"]
+CMD python mqtt-publish.py | python mysql-publish.py
