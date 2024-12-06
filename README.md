@@ -1,5 +1,6 @@
 # EW trafic simulator on single VM
 Tested using ubuntu server 24.04
+
 ![Screenshot](data/frontend1/EW-demo-frontend/images/diagram.jpg)
 
 # Network consideration
