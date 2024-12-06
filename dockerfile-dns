@@ -1,0 +1,18 @@
+FROM internetsystemsconsortium/bind9:9.18
+
+# RUN apt update \
+#  && apt install -y \
+#  bind9-doc \
+#  dnsutils \
+#  geoip-bin \
+#  mariadb-server \
+#  net-tools
+
+# Copy configuration files
+COPY config/dns/named.conf /etc/bind/
+COPY config/dns/named.conf.options /etc/bind/
+COPY config/dns/named.conf.local /etc/bind/
+COPY config/dns/db.pod1 /etc/bind/
+
+# Start the Name Service
+#CMD ["/usr/sbin/named", "-g", "-c", "/etc/bind/named.conf", "-u", "bind"]
