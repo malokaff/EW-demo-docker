@@ -3,6 +3,8 @@
 <?php
 //session_start();
 $_SESSION['mqttData'] = '';
+$mqttData = "";
+
 include("config.php");
 
 //collect mqtt data using php-mqtt client
@@ -36,19 +38,24 @@ $mqtt->registerLoopEventHandler(function (MqttClient $mqtt, float $elapsedTime) 
 	}
 });	$mqtt->loop(true);
 $mqtt->disconnect();
-//echo "session:$_SESSION['data'];";
-$mqttData = $_SESSION['mqttData'];
-
+//echo 'session:'.$_SESSION['data'];
+if(isset($_SESSION['mqttData']))
+	$mqttData = $_SESSION['mqttData'];
 
 
 //read from file
 #$data = file_get_contents("data.txt");
-if(isset($_SESSION["data"]) && $_SESSION["data"] == $mqttData){
+//if(isset($_SESSION["data"]) && $_SESSION["data"] == $mqttData){
+if($mqttData == ""){
 	echo "<font color='FF000000' size='20'><b>MQTT : no new data</b></font><br>";
 }
 else {
 	echo "<font size='20'><b>MQTT : $mqttData</b></font><br>";
 }
 $_SESSION["data"] = $mqttData;
+
+//echo 'mqttdata:'.$_SESSION['mqttData'].'<br>';
+//echo 'data:'.$_SESSION['data'].'<br>';
+
 
 ?>
