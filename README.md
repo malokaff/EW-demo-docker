@@ -2,7 +2,7 @@
 Tested using ubuntu server 24.04
 ![Screenshot](data/frontend1/EW-demo-frontend/images/diagram.jpg)
 
-# network consideration
+# Network consideration
 vm need to be connected on 2 networks:
 - 802.1q link to enable macvlan between docker
 - oob management lan to get access to the web frontend (nginx) from external
