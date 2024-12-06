@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include('config.php');
 $pagename = "api-test.php";
 $curl = curl_init();
@@ -334,7 +335,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'postMYSQL') {
 		],
 		"action" => "deny",
 		"from-ip-addresses" => [$ip_backend],
-		"to-ip-addresses" => [$ip_mqttbroker],
+		"to-ip-addresses" => [$ip_mysql],
 		"name" => "autoblock_mysql"
 	];
 	print_r($newRule);
@@ -509,8 +510,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'postMYSQL') {
 	header("Refresh:0,url=$pagename");
 	}
 }
-
-
+ob_end_flush();
 ?>
 <!DOCTYPE html> 
 <html>
