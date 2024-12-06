@@ -24,6 +24,7 @@ vm need to be connected on 2 networks:
 - nano EW-demo-docker/config/config.py
 - nano EW-demo-docker/config/config.php
 - nano EW-demo-docker/config/dns/db.pod1
+- nano EW-demo-docker/docker-compose-macvlan.yml
 - cp EW-demo-docker/config/config.php data/frontend1/EW-demo-frontend/config.php
 - cp EW-demo-docker/config/config.php data/frontend2/EW-demo-frontend/config.php
 
