@@ -1,0 +1,18 @@
+services:
+  prep:
+    container_name: prep
+    build:
+      context: .
+      dockerfile: dockerfile-prep
+    volumes:
+      - .:/home/user/
+    ports:
+      - "2022:22"
+
+
+volumes:
+  db_data: {}
+  config:
+  data:
+  log:
+  
