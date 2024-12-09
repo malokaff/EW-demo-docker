@@ -1,0 +1,24 @@
+FROM python:3.9
+
+RUN useradd -ms /bin/bash user
+USER user
+WORKDIR /home/user
+
+ADD /config/ip.cfg .
+#ADD prep.py .
+
+#install the required module
+
+# Create a virtual environment
+#RUN python -m venv myenv
+
+# Activate the virtual environment (macOS/Linux)
+#RUN source myenv/bin/activate
+#ENV PATH="myenv/bin:$PATH"
+
+RUN pip install --upgrade pip
+RUN pip install configparser
+
+#EXPOSE 2000
+
+CMD python prep.py

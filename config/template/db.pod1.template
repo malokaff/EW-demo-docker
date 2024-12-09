@@ -1,0 +1,19 @@
+$TTL    10
+@       IN      SOA     pod1. root.pod1. (
+                              2         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+; Enregistrement du nom du serveur
+@       IN      NS      dns.pod1.
+; enregistrement pour le nom du server
+dns       IN      A       $IpDns
+
+; Enregistrements pour les clients
+frontend1    IN      A       $IpFrontend1
+frontend2    IN      A       $IpFrontend2
+backend         IN      A       $IpBackend
+lb              IN      A       $IpLB
+mosquitto              IN      A       $IpMosquitto
+db              IN      A       $IpMysql
