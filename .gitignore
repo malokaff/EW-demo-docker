@@ -1,6 +1,5 @@
-config/dns/db.pod1
+#config/dns/db.pod1
 config/ip.cfg
-config/pwfile
 data/backend/EW-demo-backend/config.py
 data/frontend1/EW-demo-frontend/config.php
 docker-compose-macvlan.yml
