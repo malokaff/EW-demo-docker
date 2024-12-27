@@ -26,6 +26,8 @@ with open('docker-compose-template.yml') as f:
 with open('docker-compose-auto.yml', "w") as f:
 	f.write(newText)
 
+print('docker-compose-auto.yml has been generated')
+
 #replace in config.php
 with open('config/template/config-template.php') as f:
 	newText=f.read().replace('$IpBackend', config['DEFAULT']['IpBackend'])
@@ -38,7 +40,9 @@ with open('config/template/config-template.php') as f:
 	
 with open('config/config.php', "w") as f:
 	f.write(newText)
-	
+
+print('config/config.php has been generated')	
+
 #copy php config file for both frontend1 and frontend2	
 shutil.copyfile('config/config.php', 'data/frontend1/EW-demo-frontend/config.php')
 shutil.copyfile('config/config.php', 'data/frontend2/EW-demo-frontend/config.php')
@@ -55,7 +59,9 @@ with open('config/template/db.pod1.template') as f:
 	
 with open('config/dns/db.pod1', "w") as f:
 	f.write(newText)
-	
+
+print('config/dns/db.pod1 has been generated')	
+
 #replace in docker-compose-psm-update.yml
 with open('docker-compose-psm-updater-template.yml') as f:
 	newText=f.read().replace('$UserPSM', config['DEFAULT']['UserPSM'])
@@ -64,3 +70,5 @@ with open('docker-compose-psm-updater-template.yml') as f:
 
 with open('docker-compose-psm-updater.yml', "w") as f:
 	f.write(newText)
+	
+print('docker-compose-psm-updater.yml has been generated')	
