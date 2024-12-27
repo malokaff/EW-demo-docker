@@ -55,3 +55,12 @@ with open('config/template/db.pod1.template') as f:
 	
 with open('config/dns/db.pod1', "w") as f:
 	f.write(newText)
+	
+#replace in docker-compose-psm-update.yml
+with open('docker-compose-psm-updater-template.yml') as f:
+	newText=newText.replace('$UserPSM', config['DEFAULT']['UserPSM'])
+	newText=newText.replace('$PasswordPSM', config['DEFAULT']['PasswordPSM'])
+	newText=newText.replace('$IpPSM', config['DEFAULT']['IpPSM'])
+
+with open('docker-compose-psm-updater.yml', "w") as f:
+	f.write(newText)
