@@ -22,6 +22,7 @@ with open('docker-compose-template.yml') as f:
 	newText=newText.replace('$SubnetMacvlan', config['DEFAULT']['SubnetMacvlan'])
 	newText=newText.replace('$IpRangeMacvlan', config['DEFAULT']['IpRangeMacvlan'])
 	newText=newText.replace('$GatewayMacvlan', config['DEFAULT']['GatewayMacvlan'])
+	newText=newText.replace('$AppName', config['DEFAULT']['AppName'])
 	
 with open('docker-compose-auto.yml', "w") as f:
 	f.write(newText)
