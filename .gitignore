@@ -10,3 +10,4 @@ data/frontend1/EW-demo-frontend/data.txt
 data/frontend1/EW-demo-frontend/index.php
 docker-compose-macvlan.yml
 dockerfile-frontend
+docker-compose-psm-updater.yml
