@@ -3,7 +3,5 @@ config/ip.cfg
 config/pwfile
 data/backend/EW-demo-backend/config.py
 data/frontend1/EW-demo-frontend/config.php
-#data/frontend1/EW-demo-frontend/data.txt
-#data/frontend1/EW-demo-frontend/index.php
 docker-compose-macvlan.yml
 docker-compose-psm-updater.yml
