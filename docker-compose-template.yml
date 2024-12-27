@@ -1,7 +1,7 @@
 #version: '3'
 services:
   backend:
-    container_name: backend
+    container_name: backend-$AppName
     build:
       context: .
       dockerfile: dockerfile-backend
@@ -11,7 +11,7 @@ services:
     dns: $IpDns
 
   mosquitto:
-    container_name: mosquitto
+    container_name: mosquitto-$AppName
     image: eclipse-mosquitto
     volumes:
       - ./config:/mosquitto/config
@@ -32,7 +32,7 @@ services:
     restart: always
 
   db:
-    container_name: mysql-server
+    container_name: mysql-server-$AppName
     image: mysql:5.7
     command: --init-file /docker-entrypoint-initdb.d/init.sql
     volumes:
@@ -52,7 +52,7 @@ services:
         ipv4_address: $IpMysql
 
   frontend1:
-    container_name: frontend1
+    container_name: frontend1-$AppName
     build: 
       context: .
       dockerfile: dockerfile-frontend
@@ -66,7 +66,7 @@ services:
       dockervlan:
         ipv4_address: $IpFrontend1
   frontend2:
-    container_name: frontend2
+    container_name: frontend2-$AppName
     build: 
       context: .
       dockerfile: dockerfile-frontend
@@ -80,7 +80,7 @@ services:
       dockervlan:
         ipv4_address: $IpFrontend2
   nginx:
-    container_name: nginx-lb
+    container_name: nginx-lb-$AppName
     build: 
       context: .
       dockerfile: dockerfile-nginx
@@ -94,7 +94,7 @@ services:
         ipv4_address: $IpLB
 
   dns:
-    container_name: dns-bind
+    container_name: dns-bind-$AppName
     build: 
       context: .
       dockerfile: dockerfile-dns
@@ -103,7 +103,7 @@ services:
         ipv4_address: $IpDns
 
   phpmyadmin:
-    container_name: phpmyadmin
+    container_name: phpmyadmin-$AppName
     image: phpmyadmin/phpmyadmin
     links:
     - db
