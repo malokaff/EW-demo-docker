@@ -1,0 +1,16 @@
+FROM php:8.3-apache
+RUN docker-php-ext-install mysqli pdo pdo_mysql
+RUN apt-get update
+RUN apt-get install -y unzip
+RUN apt-get install -y dnsutils
+#RUN echo "nameserver 10.29.21.37" > /etc/resolv.conf
+#RUN pecl install redis
+#RUN docker-php-ext-enable redis
+#RUN echo "session.save_handler = redis" >> /usr/local/etc/php/php.ini
+#RUN echo "session.save_path = \"/var/www/html/EW-demo-frontend\"" >> /usr/local/etc/php/php.ini
+RUN echo "session.save_path=\"/tmp\""  >> /usr/local/etc/php/php.ini
+WORKDIR /var/www/html/EW-demo-frontend
+RUN curl -sS https://getcomposer.org/installer | php
+RUN php composer.phar require php-mqtt/client
+#COPY /config/config.php /var/www/html/EW-demo-frontend
+
