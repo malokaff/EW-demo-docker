@@ -58,7 +58,7 @@ with open('config/dns/db.pod1', "w") as f:
 	
 #replace in docker-compose-psm-update.yml
 with open('docker-compose-psm-updater-template.yml') as f:
-	newText=newText.replace('$UserPSM', config['DEFAULT']['UserPSM'])
+	newText=f.read().replace('$UserPSM', config['DEFAULT']['UserPSM'])
 	newText=newText.replace('$PasswordPSM', config['DEFAULT']['PasswordPSM'])
 	newText=newText.replace('$IpPSM', config['DEFAULT']['IpPSM'])
 

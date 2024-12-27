@@ -37,7 +37,7 @@ also needed for frontend 1 and frontend 2 to access PSM admin
 - sudo docker network connect bridge frontend1
 - sudo docker network connect bridge frontend2
 
-# optional : add portainer and psm-updater
+# optional : add portainer and psm-updater (need to be started before docker-compose-auto above)
 It’s possible to automate the creation of ip collection when a docker is created using psm-updater (created by Francois Prowse)
 Psm-updater is triggered by portainer when docker is created and removed 
 More information of psm-updater here:
