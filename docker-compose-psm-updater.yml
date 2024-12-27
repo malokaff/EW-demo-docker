@@ -1,0 +1,9 @@
+services:
+  psm-updater:
+    image: farsonic/docker-psm-event-updater:latest
+    volumes:
+     - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      PSM_IPADDRESS: "10.9.20.71"
+      PSM_USERNAME: "admin"
+      PSM_PASSWORD: "Pensando0$"
